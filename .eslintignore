@@ -1,0 +1,9 @@
+node_modules
+.vscode
+.git
+.babelrc
+README.md
+webpack.mix.js
+public
+nest-rtsp.sqlite
+persistent/nest-rtsp.sqlite
