@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 
 /**
- * This is a special command which is used when launching in docker
- * It first runs the relevant database migrations, and then launches the server
+ * This script is used when launching in a container runtime.
  */
+
 import { join } from 'path';
 import { fork } from 'child_process';
 import { cyan, greenBright, redBright } from 'cli-color';
