@@ -21,25 +21,25 @@ io.on('connection', socket => {
 	var ops = [];
 	socket.on('config_rtspDestination', m => {
 		if ('string' !== typeof m){
-			socket.emit('fatal', 'rtsp destination setup error');
+			socket.emit('fatal', 'rtsp destination must be a string');
 			return;
 		}
 		var regexValidator = /^rtsp:\/\/[^\s]*$/;
 		if(!regexValidator.test(m)){
-			socket.emit('fatal', 'rtsp address rejected');
+			socket.emit('fatal', 'rtsp address is invalid');
 			return;
 		}
 		socket._rtspDestination = m;
-		socket.emit('message', 'rtsp destination set to:'+m);
+		socket.emit('message', `rtsp destination set to '${m}'`);
 	});
 	
 	socket.on('config_vcodec', m => {
 		if('string' !== typeof m){
-			socket.emit('fatal','input codec setup error');
+			socket.emit('fatal','input codec must be a string');
 			return;
 		}
 		if(!/^[0-9a-z]{2,}$/.test(m)){
-			socket.emit('fatal','input codec contains illegal character?');
+			socket.emit('fatal','input codec contains illegal character');
 			return;
 		}//for safety
 		socket._vcodec = m;
@@ -47,11 +47,11 @@ io.on('connection', socket => {
 
 	socket.on('start', () => {
 		if(ffmpeg_process || feedStream){
-			socket.emit('fatal','stream already started.');
+			socket.emit('fatal','stream already started');
 			return;
 		}
 		if(!socket._rtspDestination){
-			socket.emit('fatal','no destination given.');
+			socket.emit('fatal','no destination given');
 			return;
 		}
 		

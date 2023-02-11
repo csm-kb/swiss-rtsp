@@ -130,6 +130,9 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 ## Roadmap
 
 - [ ] MVP with `docker-compose.yml` for local development
+- [ ] Local file ingest module
+- [ ] Google Nest RTSP ingest module
+- [ ] Google Nest WebRTC ingest module with `node-webrtc`
 
 See the [open issues](https://github.com/csm-kb/swiss-rtsp/issues) for a full list of proposed features (and known issues).
 
