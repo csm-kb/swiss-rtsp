@@ -29,11 +29,18 @@ module.exports = {
 			'error',
 			'always'
 		],
-		'space-in-parens': [ 'error', 'never' ],
-		'array-bracket-spacing': [ 'error', 'always' ],
-		'object-curly-spacing': [ 'error', 'always' ],
-		'yoda': [ 'error', 'always' ],
-		'comma-dangle': [ 'error', 'never' ],
-		'arrow-parens': [ 'error', 'as-needed' ]
+		'space-in-parens': ['error', 'never'],
+		'array-bracket-spacing': ['error', 'never'],
+		'object-curly-spacing': ['error', 'always'],
+		'yoda': ['error', 'always'],
+		'comma-dangle': ['error', 'never'],
+		'arrow-parens': ['error', 'as-needed'],
+		'no-unused-vars': ['warn', {
+			'vars': 'all',
+			'args': 'after-used',
+			'ignoreRestSiblings': false,
+			'varsIgnorePattern': '^_',
+			'argsIgnorePattern': '^_'
+		}]
 	}
 };
