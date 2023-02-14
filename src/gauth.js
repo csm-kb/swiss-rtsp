@@ -11,7 +11,9 @@ limitations under the License.
 */
 
 import { google } from 'googleapis';
-import db from './db';
+import open from 'open';
+
+import db from './db.js';
 
 // Server Credentials:
 const OAUTH_SCOPE = ['openid', 'https://www.googleapis.com/auth/sdm.service'];
@@ -53,7 +55,7 @@ var gClient;
 export const getClient = () => gClient;
 
 export function express_GoogleOAuthRedirect(express_app) {
-	express_app.get('/google_oauth', async (req,res) => {
+	express_app.get('/oauth/google/redirect', async (req,res) => {
 		try {
 			const code = req.query.code;
 			const { tokens } = await gClient.getToken(code);

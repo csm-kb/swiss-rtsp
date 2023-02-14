@@ -3,7 +3,7 @@ dotenv.config();
 
 // TODO: eventually figure out how to "module"-arize bits like this
 // the oauth->token flow could honestly be handled by the client and passed to the server
-import gauth from './src/gauth';
+import gauth, { express_GoogleOAuthRedirect } from './src/gauth.js';
 if (process.env.FEATURE_GAUTH) {
 	gauth.init();
 }
@@ -21,7 +21,7 @@ const SERVER_PORT = process.env.PORT || 1437;
 const app = express();
 
 if (process.env.FEATURE_GAUTH) {
-	gauth.express_GoogleOAuthRedirect(app);
+	express_GoogleOAuthRedirect(app);
 }
 
 const server = http.createServer(app);
