@@ -120,6 +120,19 @@
 
 :construction: Work in progress.
 
+Here is a list of environment variable configs to be set:
+
+| Variable | Description | Recommended default |
+|---|---|---|
+| `PORT` | The port to host the app on. | `3000` |
+| `FEATURE_GAUTH` | Whether Google OAuth is enabled. Do not specify this variable to disable it. | If present, `1` |
+| `GA_OAUTH_CID` | The Google auth client ID. ||
+| `GA_OAUTH_CS` | The Google auth client secret. ||
+| `GA_REDIRECT_URL` | The Google auth redirect URL. Depeneds on what authorized callback endpoints you set in the Google API settings. | `"http://localhost:3000/oauth/google/redirect"` |
+| `GA_SDM_PID` | The Google Smart Device Management project ID. ||
+
+<br/>
+
 _For more examples, please refer to the [Documentation](https://example.com)_
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
